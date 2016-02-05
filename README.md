@@ -26,13 +26,19 @@ const recurrence = require('recurrence');
 const dates = [
   new Date(2016, 1, 1),
   new Date(2016, 1, 2),
-  new Date(2016, 1, 3)
+  new Date(2016, 1, 3),
+  new Date(2016, 1, 4),
+  new Date(2016, 1, 6)
 ];
 
 console.log(recurrence(dates));
+// { count: 1, unit: 'day', recurrence: 'daily' }
 ```
 
 Duplicate dates are removed and the order doesn't matter.
+
+The result will be something that should make sense to a human. 
+For instance in the example above the last item is not 1 day later but the events are approximately 1 day apart.
 
 ## Output
 
@@ -105,7 +111,7 @@ const recurrence = require('recurrence');
 
 const leapyears = [
   new Date(2016, 1, 29),
-  new Date(2012, 1, 29)
+  new Date(2012, 1, 29),
   new Date(2008, 1, 29)
 ];
 
