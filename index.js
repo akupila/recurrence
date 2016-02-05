@@ -88,7 +88,7 @@ module.exports = function(dates, options) {
   while (count >= units[i + 1].count && i < n - 2) {
     i++;
     divider *= units[i].count;
-    count = Math.round(seconds / divider);
+    count = Math.floor(seconds / divider);
   }
 
   count = Math.round(count);
