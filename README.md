@@ -25,7 +25,7 @@ const recurrence = require('recurrence');
 
 const dates = [
   new Date(2016, 1, 1),
-  new Date(2016, 1, 2)
+  new Date(2016, 1, 2),
   new Date(2016, 1, 3)
 ];
 
