@@ -29,11 +29,11 @@ module.exports = function(dates, options) {
     .sort((date1, date2) => date2.getTime() - date1.getTime());
 
   if (dates.length <= 1) {
-    // no reoccurance
+    // no recurrence
     return {
       count: 0,
       unit: 'day',
-      reoccurance: 'never'
+      recurrence: 'never'
     };
   }
 
@@ -101,20 +101,20 @@ module.exports = function(dates, options) {
   }
 
   const unit = units[i].name;
-  var reoccurance;
+  var recurrence;
   if (count === 1) {
     if (!options.noSingleUnits) {
-      reoccurance = `${units[i].single || unit + 'ly'}`;
+      recurrence = `${units[i].single || unit + 'ly'}`;
     } else {
-      reoccurance = `every ${unit}`;
+      recurrence = `every ${unit}`;
     }
   } else {
-    reoccurance = `every ${formatNumber(count)} ${unit}s`;
+    recurrence = `every ${formatNumber(count)} ${unit}s`;
   }
 
   return {
     count: count,
     unit: unit,
-    reoccurance: reoccurance
+    recurrence: recurrence
   };
 }

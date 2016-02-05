@@ -1,6 +1,6 @@
 {
-  "name": "reoccurance",
-  "description": "Generates a string based on string reoccurance",
+  "name": "recurrence",
+  "description": "Generates a string based on string recurrence",
   "main": "index.js",
   "author": "Antti Kupila <akupila@gmail.com>",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "date",
-    "reoccurance",
+    "recurrence",
     "format",
     "string"
   ],
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/akupila/reoccurance"
+    "url": "https://github.com/akupila/recurrence"
   },
   "bugs": {
     "url": "https://github.com/akupila/node-podcast-parser/issues"

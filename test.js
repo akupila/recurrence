@@ -1,23 +1,23 @@
 const expect = require('expect.js');
-const reoccurance = require('./index');
+const recurrence = require('./index');
 
-describe('Date reoccurance', () => {
+describe('Date recurrence', () => {
   it('should throw with invalid input', () => {
-    expect(reoccurance).withArgs('2016-01-01').to.throwException();
+    expect(recurrence).withArgs('2016-01-01').to.throwException();
   });
 
   it('should return \'never\' when no diff is available', () => {
     const date = new Date();
-    const result = reoccurance([date, date]);
+    const result = recurrence([date, date]);
     expect(result).to.eql({
       count: 0,
       unit: 'day',
-      reoccurance: 'never'
+      recurrence: 'never'
     });
   });
 
   it('should ignore duplicate dates', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 3),
       new Date(2016, 1, 3),
       new Date(2016, 1, 3),
@@ -28,12 +28,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'day',
-      reoccurance: 'daily'
+      recurrence: 'daily'
     });
   });
 
   it('should extract single second', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 10, 0, 1),
       new Date(2016, 1, 1, 10, 0, 0)
     ]);
@@ -41,12 +41,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'second',
-      reoccurance: 'every second'
+      recurrence: 'every second'
     });
   });
 
   it('should extract multiple seconds', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 10, 0, 10),
       new Date(2016, 1, 1, 10, 0, 0)
     ]);
@@ -54,12 +54,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 10,
       unit: 'second',
-      reoccurance: 'every 10 seconds'
+      recurrence: 'every 10 seconds'
     });
   });
 
   it('should extract single minute', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 10, 1),
       new Date(2016, 1, 1, 10, 0)
     ]);
@@ -67,12 +67,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'minute',
-      reoccurance: 'every minute'
+      recurrence: 'every minute'
     });
   });
 
   it('should extract multiple minutes', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 10, 30),
       new Date(2016, 1, 1, 10, 0)
     ]);
@@ -80,12 +80,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 30,
       unit: 'minute',
-      reoccurance: 'every 30 minutes'
+      recurrence: 'every 30 minutes'
     });
   });
 
   it('should extract single hour', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 11),
       new Date(2016, 1, 1, 10)
     ]);
@@ -93,12 +93,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'hour',
-      reoccurance: 'hourly'
+      recurrence: 'hourly'
     });
   });
 
   it('should extract multiple hours', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 12),
       new Date(2016, 1, 1, 10)
     ]);
@@ -106,12 +106,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 2,
       unit: 'hour',
-      reoccurance: 'every 2 hours'
+      recurrence: 'every 2 hours'
     });
   });
 
   it('should extract single day', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 3),
       new Date(2016, 1, 2),
       new Date(2016, 1, 1)
@@ -120,12 +120,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'day',
-      reoccurance: 'daily'
+      recurrence: 'daily'
     });
   });
 
   it('should extract multiple days', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 5),
       new Date(2016, 1, 3),
       new Date(2016, 1, 1)
@@ -134,12 +134,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 2,
       unit: 'day',
-      reoccurance: 'every 2 days'
+      recurrence: 'every 2 days'
     });
   });
 
   it('should extract single week', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 15),
       new Date(2016, 1, 8),
       new Date(2016, 1, 1)
@@ -148,12 +148,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'week',
-      reoccurance: 'weekly'
+      recurrence: 'weekly'
     });
   });
 
   it('should extract multiple weeks', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 15),
       new Date(2016, 1, 1)
     ]);
@@ -161,12 +161,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 2,
       unit: 'week',
-      reoccurance: 'every 2 weeks'
+      recurrence: 'every 2 weeks'
     });
   });
 
   it('should extract single month', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 3, 1),
       new Date(2016, 2, 1),
       new Date(2016, 1, 1)
@@ -175,12 +175,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'month',
-      reoccurance: 'monthly'
+      recurrence: 'monthly'
     });
   });
 
   it('should extract multiple months', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 3, 1),
       new Date(2016, 1, 1)
     ]);
@@ -188,12 +188,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 2,
       unit: 'month',
-      reoccurance: 'every 2 months'
+      recurrence: 'every 2 months'
     });
   });
 
   it('should extract single year', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1),
       new Date(2015, 1, 1),
       new Date(2014, 1, 1)
@@ -202,12 +202,12 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'year',
-      reoccurance: 'yearly'
+      recurrence: 'yearly'
     });
   });
 
   it('should extract single year', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1),
       new Date(2014, 1, 1)
     ]);
@@ -215,7 +215,7 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 2,
       unit: 'year',
-      reoccurance: 'every 2 years'
+      recurrence: 'every 2 years'
     });
   });
 
@@ -223,7 +223,7 @@ describe('Date reoccurance', () => {
     // dates approx every day
     // dates are at not exactly every day but
     // 'daily' is the closest approximation
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 11),
       new Date(2016, 1, 9),
       new Date(2016, 1, 8),
@@ -237,13 +237,13 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'day',
-      reoccurance: 'daily'
+      recurrence: 'daily'
     });
   });
 
   it('should handle dates out of order', () => {
     // leap years
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 29),
       new Date(2008, 1, 29),
       new Date(2012, 1, 29),
@@ -253,7 +253,7 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 4,
       unit: 'year',
-      reoccurance: 'every 4 years'
+      recurrence: 'every 4 years'
     });
   });
 
@@ -261,9 +261,9 @@ describe('Date reoccurance', () => {
     const opts = {
       numberAsString: true
     };
-    expect(reoccurance([new Date(2016, 1, 1), new Date(2016, 1, 3)], opts).reoccurance)
+    expect(recurrence([new Date(2016, 1, 1), new Date(2016, 1, 3)], opts).recurrence)
       .to.equal('every two days');
-    expect(reoccurance([new Date(2016, 1, 1), new Date(2016, 7, 1)], opts).reoccurance)
+    expect(recurrence([new Date(2016, 1, 1), new Date(2016, 7, 1)], opts).recurrence)
       .to.equal('every six months');
   });
 
@@ -277,7 +277,7 @@ describe('Date reoccurance', () => {
       'not a date'
     ];
 
-    expect(reoccurance).withArgs(invalid, opts).to.throwException();
+    expect(recurrence).withArgs(invalid, opts).to.throwException();
   });
 
   it('should not throw with loose mode', () => {
@@ -290,11 +290,11 @@ describe('Date reoccurance', () => {
       'not a date'
     ];
 
-    expect(reoccurance).withArgs(invalid, opts).to.not.throwException();
+    expect(recurrence).withArgs(invalid, opts).to.not.throwException();
   });
 
   it('should not format single values with noSingleUnits', () => {
-    const result = reoccurance([
+    const result = recurrence([
       new Date(2016, 1, 1, 11),
       new Date(2016, 1, 1, 10)
     ], {
@@ -304,7 +304,7 @@ describe('Date reoccurance', () => {
     expect(result).to.eql({
       count: 1,
       unit: 'hour',
-      reoccurance: 'every hour' // would otherwise be 'Hourly'
+      recurrence: 'every hour' // would otherwise be 'Hourly'
     });
   });
 });

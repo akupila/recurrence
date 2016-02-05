@@ -1,7 +1,7 @@
-# reoccurance
+# recurrence
 
-[![build status](https://travis-ci.org/akupila/reoccurance.svg?branch=master)](https://travis-ci.org/akupila/reoccurance)
-[![Coverage Status](https://coveralls.io/repos/github/akupila/reoccurance/badge.svg?branch=master)](https://coveralls.io/github/akupila/reoccurance?branch=master)
+[![build status](https://travis-ci.org/akupila/recurrence.svg?branch=master)](https://travis-ci.org/akupila/recurrence)
+[![Coverage Status](https://coveralls.io/repos/github/akupila/recurrence/badge.svg?branch=master)](https://coveralls.io/github/akupila/recurrence?branch=master)
 
 Calculates the diff between dates and returns a nicely formatted string.
 
@@ -15,13 +15,13 @@ Turns an array of dates into:
 ## Installation
 
 ```
-npm install --save reoccurance
+npm install --save recurrence
 ```
 
 ## Usage
 
 ```js
-const reoccurance = require('reoccurance');
+const recurrence = require('recurrence');
 
 const dates = [
   new Date(2016, 1, 1),
@@ -29,7 +29,7 @@ const dates = [
   new Date(2016, 1, 3)
 ];
 
-console.log(reoccurance(dates));
+console.log(recurrence(dates));
 ```
 
 Duplicate dates are removed and the order doesn't matter.
@@ -40,11 +40,11 @@ Duplicate dates are removed and the order doesn't matter.
 {
   "count": 1,
   "unit": "day/week/month/year",
-  "reoccurance": "Daily"
+  "recurrence": "Daily"
 }
 ```
 
-In the output `reoccurance` is set to something that you could show directly to a user.
+In the output `recurrence` is set to something that you could show directly to a user.
 
 Values look like this:
 
@@ -77,7 +77,7 @@ Defaults:
 Override any of these by passing in an object:
 
 ```js
-reoccurance(dates, {
+recurrence(dates, {
   strict: true,
   numberAsString: true
 });
@@ -101,7 +101,7 @@ Doesn't format strings as `daily` or `yearly` so it returns `Every second/hour/m
 ## Example
 
 ```js
-const reoccurance = require('reoccurance');
+const recurrence = require('recurrence');
 
 const leapyears = [
   new Date(2016, 1, 29),
@@ -109,11 +109,11 @@ const leapyears = [
   new Date(2008, 1, 29)
 ];
 
-const result = reoccurance(leapyears, {
+const result = recurrence(leapyears, {
   numberAsString: true  
 });
 
-console.log(`Leap year happens ${result.reoccurance}!`);
+console.log(`Leap year happens ${result.recurrence}!`);
 // Leap year happens every four years!
 ```
 
