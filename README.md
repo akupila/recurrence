@@ -1,6 +1,7 @@
 # reoccurance
 
 [![build status](https://travis-ci.org/akupila/reoccurance.svg?branch=master)](https://travis-ci.org/akupila/reoccurance)
+[![Coverage Status](https://coveralls.io/repos/github/akupila/reoccurance/badge.svg?branch=master)](https://coveralls.io/github/akupila/reoccurance?branch=master)
 
 Calculates the diff between dates and returns a nicely formatted string.
 
