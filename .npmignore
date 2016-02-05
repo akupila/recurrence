@@ -1,0 +1,7 @@
+node_modules
+coverage
+test.js
+.coveralls.yml
+.travis.yml
+.eslintrc
+.editorconfig
