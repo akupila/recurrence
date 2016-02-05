@@ -1,6 +1,7 @@
 {
   "name": "recurrence",
   "description": "Generates a string based on date recurrence in array",
+  "version": "0.0.0-semantic-release",
   "main": "index.js",
   "author": "Antti Kupila <akupila@gmail.com>",
   "scripts": {
