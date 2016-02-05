@@ -1,0 +1,38 @@
+{
+  "name": "reoccurance",
+  "description": "Generates a string based on string reoccurance",
+  "main": "index.js",
+  "author": "Antti Kupila <akupila@gmail.com>",
+  "scripts": {
+    "test": "mocha",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "keywords": [
+    "date",
+    "reoccurance",
+    "format",
+    "string"
+  ],
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akupila/reoccurance"
+  },
+  "bugs": {
+    "url": "https://github.com/akupila/node-podcast-parser/issues"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "istanbul": "0.4.2",
+    "mocha": "2.4.5",
+    "semantic-release": "^4.3.5"
+  },
+  "dependencies": {
+    "lodash": "4.2.1"
+  }
+}
